@@ -20,8 +20,8 @@ model.eval()
 
 # load mapping of ImageNet index to human-readable label
 # run "python manage.py collectstatic" first!
-# json_path = os.path.join(settings.STATICFILES_DIRS[0], "imagenet_class_index.json")
-json_path = os.path.join(settings.STATIC_ROOT, "imagenet_class_index.json")
+json_path = os.path.join(settings.STATICFILES_DIRS[0], "imagenet_class_index.json")
+#json_path = os.path.join(settings.STATIC_ROOT, "imagenet_class_index.json")
 imagenet_mapping = json.load(open(json_path))
 
 
