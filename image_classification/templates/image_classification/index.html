@@ -10,34 +10,107 @@
 {#    Bootstrap 5 #}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+
+    <style>
+        *{
+           font-family: 'Poppins', sans-serif;
+           box-sizing: border-box;
+           margin: 0;
+         }      .column {
+           float: left;
+           padding: 10px;
+           height: 600px;
+         }       .left {
+           width: 70%;
+         }      .right {
+           width: 30%;
+           padding-left: 30px;
+         }      .row:after {
+           content: "";
+           display: table;
+           clear: both;
+        }      .vertical-center {
+           margin: 0;
+           position: absolute;
+           top: 50%;
+           -ms-transform: translateY(-50%);
+           transform: translateY(-50%);
+        }      .center {
+           margin: auto;
+           width: 50%;
+           padding: 10px;
+        }      .button {
+           background-color: #FEE13D;
+           border: none;
+           color: #000000;
+           padding: 10px 60px;
+           text-align: center;
+           text-decoration: none;
+           display: inline-block;
+           font-size: 16px;
+           margin: 4px 2px;
+           cursor: pointer;
+         }      .text {
+           font-size: 16px;
+           text-align: center;
+           background-color: #FAFAFA;
+           padding: 20px 10px;
+        }      @media screen and (max-width: 600px) {
+           .column {
+              float: none;
+           }
+           .left {
+              width: 100%;
+              padding-bottom: 10px;
+              float: none;
+           }         .right {
+              width: 100%;
+              padding-bottom: 10px;
+              float: none;
+           }         .vertical-center {
+              position: absolute;
+              transform: translateY(0%);
+              top: 120%;
+              margin-top: 10px;
+           }         .center{
+              margin: 0;
+           }
+        }   </style>
 </head>
 <body>
 
 
-<h1>Image Classification App</h1>
-<p>A simple Django web app with a pretrained PyTorch DenseNet model will try to classify the selected image according to ImageNet labels. Uploaded images are not saved.</p>
-
-
-<form method="post" enctype="multipart/form-data" style="margin-top: 50px; margin-bottom: 30px;">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit" id="btnUpload" class="btn btn-primary">Upload</button>
-</form>
-
-{% if image_uri is not None %}
-    {% if predicted_label is not None %}
-        <div class="alert alert-primary" role="alert">
-            Predicted label: <b>{{ predicted_label }}</b>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand h1 bold  text-white text-center offset-5 " href="#">IMAGE CLASSIFICATION by SE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
         </div>
-    {% else %}
-        <div class="alert alert-danger" role="alert">
-            Prediction error. No label predicted.
-        </div>
-    {% endif %}
+    </nav>
 
-    <img src="{{ image_uri }}" class="img-fluid" alt="Uploaded image"
-         style="max-width: min(500px, 100%); height: auto; margin-top: 30px;">
-{% endif %}
+
+<div class="row">      
+    <div class="column left" style="background-color:#FFFFFF;">    
+     
+                <div class="center">       
+                       {% if image_uri is not None %} 
+                       
+                                 <br><br>  
+              <img class="outputImage" src="{{ image_uri }}" width="400" height="400">
+              {% if predicted_label is not None %}
+    <div class="text">It seems to be <b>{{predicted_label}}</b>
+        {% else %}
+        <div class="text"> <h4><b>Not able to classify</b> </h4> </b>
+        {% endif %}
+    </div>          
+    {% endif %}    
+   </div>
+</div>     <div class="column right" style="background-color:#000000; color: #FFFFFF;">     <div class="vertical-center">        <h3>Choose Image to</h3>        <h2><b>CLASSIFY</b></h2>        <br><br>        <form method="post" enctype="multipart/form-data">           {% csrf_token %}           {{ form }}           <br><br><br><br>           <button type="submit" id="button" class="button" >Classify It</button>          </form>
+</div>
+</div>
+</div>
 
 {# spinner inside the submit button when uploading and classifying an image #}
 {# from https://stackoverflow.com/a/54533740/2745116 #}
