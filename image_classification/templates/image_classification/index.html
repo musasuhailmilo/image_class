@@ -1,131 +1,130 @@
+{% load static %}  
 <!DOCTYPE html>
-<html lang="en">
+<html  >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PyTorch Image Classification</title>
+  <!-- Site made with Mobirise Website Builder v5.6.0, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.6.0, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Home</title>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-{#    Bootstrap 5 #}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-
-    <style>
-        *{
-           font-family: 'Poppins', sans-serif;
-           box-sizing: border-box;
-           margin: 0;
-         }      .column {
-           float: left;
-           padding: 10px;
-           height: 600px;
-         }       .left {
-           width: 70%;
-         }      .right {
-           width: 30%;
-           padding-left: 30px;
-         }      .row:after {
-           content: "";
-           display: table;
-           clear: both;
-        }      .vertical-center {
-           margin: 0;
-           position: absolute;
-           top: 50%;
-           -ms-transform: translateY(-50%);
-           transform: translateY(-50%);
-        }      .center {
-           margin: auto;
-           width: 50%;
-           padding: 10px;
-        }      .button {
-           background-color: #FEE13D;
-           border: none;
-           color: #000000;
-           padding: 10px 60px;
-           text-align: center;
-           text-decoration: none;
-           display: inline-block;
-           font-size: 16px;
-           margin: 4px 2px;
-           cursor: pointer;
-         }      .text {
-           font-size: 16px;
-           text-align: center;
-           background-color: #FAFAFA;
-           padding: 20px 10px;
-        }      @media screen and (max-width: 600px) {
-           .column {
-              float: none;
-           }
-           .left {
-              width: 100%;
-              padding-bottom: 10px;
-              float: none;
-           }         .right {
-              width: 100%;
-              padding-bottom: 10px;
-              float: none;
-           }         .vertical-center {
-              position: absolute;
-              transform: translateY(0%);
-              top: 120%;
-              margin-top: 10px;
-           }         .center{
-              margin: 0;
-           }
-        }   </style>
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/dropdown/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/socicon/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}"><link rel="stylesheet" href="{% static  'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+  
+  <style>
+   .footer {
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     background-color: black;
+     color: white;
+     text-align: center;
+   }
+   </style>
+  
+  
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+  
+  <section data-bs-version="5.1" class="menu menu1 cid-sXI4KXVWyc" once="menu" id="menu1-k">
+    
 
-
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg mx-auto ">
         <div class="container-fluid">
-            <a class="navbar-brand h1 bold  text-white text-center offset-5 " href="#">IMAGE CLASSIFICATION by SE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
+
+         <div class="mx-auto">
+
+            <a class="navbar-brand h1 bold text-white " href="#">Deep Learning Image Classification Deployed on Heroku</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+         </div>
+         
+         
+
+            
         </div>
     </nav>
 
+</section>
 
-<div class="row">      
-    <div class="column left" style="background-color:#FFFFFF;">    
-     
-                <div class="center">       
-                       {% if image_uri is not None %} 
-                       
-                                 <br><br>  
-              <img class="outputImage" src="{{ image_uri }}" width="400" height="400">
-              {% if predicted_label is not None %}
-    <div class="text">It seems to be <b>{{predicted_label}}</b>
-        {% else %}
-        <div class="text"> <h4><b>Not able to classify</b> </h4> </b>
-        {% endif %}
-    </div>          
-    {% endif %}    
-   </div>
-</div>     <div class="column right" style="background-color:#000000; color: #FFFFFF;">     <div class="vertical-center">        <h3>Choose Image to</h3>        <h2><b>CLASSIFY</b></h2>        <br><br>        <form method="post" enctype="multipart/form-data">           {% csrf_token %}           {{ form }}           <br><br><br><br>           <button type="submit" id="button" class="button" >Classify It</button>          </form>
-</div>
-</div>
-</div>
 
-{# spinner inside the submit button when uploading and classifying an image #}
-{# from https://stackoverflow.com/a/54533740/2745116 #}
-{# strange: works on Firefox but on Chrome, keeps spinning forever #}
-{#<script>#}
-{#    $(document).ready(function() {#}
-{#        $("#btnUpload").click(function() {#}
-{#            // disable button#}
-{#            $(this).prop("disabled", true);#}
-{#            // add spinner to button#}
-            {#$(this).html(#}
-            {#    `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`#}
-            {#);#}
-{#        });#}
-{#    });#}
-{#</script>#}
+
+<section data-bs-version="5.1" class="image3 cid-s48upRUlSD" id="image3-9">
+    
+
+    
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-6">
+                <div class="image-wrapper">
+                    {% if image_uri is not None %}
+                    <img src="{{ image_uri }}" alt="Mobirise">
+                    {% if predicted_label is not None %}
+                    <p class="mbr-description mbr-fonts-style mt-2 align-center display-5">
+                        It seems to be <b>{{predicted_label}}</b></p>
+                        {% else %}
+                        <p class="mbr-description mbr-fonts-style mt-2 align-center display-5">
+                            not able to classify image </p>
+                        {% endif %}
+                </div>
+                {% endif %}  
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="header1 cid-s48MCQYojq" id="header1-f">
+
+    
+
+    
+
+    <div class="align-center container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-4">
+                <h1 class="mbr-section-title mbr-fonts-style mb-3 display-2"><strong>Select the Image to Classify</strong></h1>
+                <form method="post" enctype="multipart/form-data">     
+                  {% csrf_token %}        
+                     {{ form }}        
+                        <br><br><br><br>
+                        <div class="align-center container">
+                           <div class="row justify-content-center">
+             <button type="submit" id="button" class="btn btn-success display-4" >Classify It</button> 
+                           </div> </div>
+            </form>
+                
+               
+        </div>
+    </div>
+</section>
+    
+
+    <div class="footer">
+      <div class="media-container-row align-center mbr-white">
+            
+            
+         <div class="row row-copirayt">
+             <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-9">
+                 © Copyright 2020 Mobirise. All Rights Reserved.
+             </p>
+         </div>
+     </div>
+    </div>
+  
 </body>
 </html>
